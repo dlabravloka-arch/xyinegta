@@ -1,0 +1,23 @@
+# Список модов для Fabric 1.21.x сервера
+# Формат: <modrinth-slug> <категория>
+# Скрипт setup.sh скачивает свежие версии через Modrinth API.
+# Все моды server-side совместимы — ванильный клиент сможет подключиться.
+
+# === Зависимости ===
+fabric-api               core
+# === Оптимизация ===
+lithium                  perf
+ferrite-core             perf
+krypton                  perf
+c2me-fabric              perf
+scalablelux              perf
+spark                    perf
+servercore               perf
+noisium                  perf
+# === Геймплей / прикольные ===
+carpet                   fun
+fallingtree              fun
+easy-anvils              fun
+trade-cycling            fun
+wandering-trades-fabric  fun
+appleskin                fun

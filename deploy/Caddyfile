@@ -1,0 +1,23 @@
+# Caddy конфиг — автоматический HTTPS через Let's Encrypt.
+# {$DOMAIN} читается из docker-compose env.
+
+{$DOMAIN} {
+    encode gzip zstd
+    reverse_proxy website:3000
+
+    # Полезные security-заголовки
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains"
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "DENY"
+        Referrer-Policy "strict-origin-when-cross-origin"
+    }
+}
+
+# Если хочешь чтобы голый IP / localhost тоже работал на сайт без HTTPS:
+:80 {
+    @host host {$DOMAIN}
+    redir @host https://{$DOMAIN}{uri}
+
+    reverse_proxy website:3000
+}

@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html, body {
+  background: #0a0b0e;
+  color: #e6e7ea;
+}
+
+.bg-mc-dirt {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><rect width='32' height='32' fill='%23583c1d'/><rect width='6' height='6' x='2' y='2' fill='%236a4a25'/><rect width='4' height='4' x='12' y='6' fill='%234a3217'/><rect width='5' height='5' x='20' y='14' fill='%236a4a25'/><rect width='3' height='3' x='6' y='22' fill='%23704c25'/><rect width='4' height='4' x='24' y='4' fill='%234a3217'/><rect width='3' height='3' x='14' y='24' fill='%23704c25'/></svg>");
+}
+
+.btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 font-semibold transition;
+}
+
+.btn-primary {
+  @apply btn bg-accent text-black hover:bg-accent2;
+}
+
+.btn-secondary {
+  @apply btn bg-panel border border-white/10 hover:border-accent/40;
+}
+
+.card {
+  @apply rounded-xl bg-panel border border-white/10 p-6;
+}
+
+.input {
+  @apply w-full rounded-md bg-ink border border-white/10 px-3 py-2 text-white focus:outline-none focus:border-accent/60;
+}
+
+.label {
+  @apply text-sm text-white/70 mb-1 block;
+}
