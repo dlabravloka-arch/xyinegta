@@ -1,0 +1,39 @@
+# Node / Next.js
+node_modules/
+.next/
+out/
+dist/
+.turbo/
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Minecraft server runtime data
+server/world/
+server/world_nether/
+server/world_the_end/
+server/logs/
+server/crash-reports/
+server/cache/
+server/libraries/
+server/versions/
+server/mods/*.jar
+server/banned-*.json
+server/whitelist.json
+server/ops.json
+server/usercache.json
+server/eula.txt
+
+# Caddy
+deploy/caddy_data/
+deploy/caddy_config/
+
+# Prisma SQLite
+website/prisma/*.db
+website/prisma/*.db-journal
+
+# Misc
+.DS_Store
+*.log
