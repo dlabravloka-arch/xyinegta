@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+.uv/
+.uv-cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+dist/
+build/
+*.egg-info/
+
+# Node (in case we add tooling later)
+node_modules/
+
+# Editors / OS
+.DS_Store
+.idea/
+.vscode/

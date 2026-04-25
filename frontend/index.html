@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>СВИНКИ ПРОТИВ ОРДЫ — co-op</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div id="menu" class="overlay">
+    <div class="panel">
+      <h1>СВИНКИ ПРОТИВ ОРДЫ</h1>
+      <p class="sub">Кооператив на двоих. У вас 1 HP. Не дайте им вас тронуть.</p>
+      <label class="row">
+        Имя свина:
+        <input id="name" type="text" maxlength="16" value="Пятачок" />
+      </label>
+      <label class="row">
+        Адрес сервера (WebSocket):
+        <input id="server" type="text" placeholder="wss://your-server/ws" />
+      </label>
+      <button id="play" class="big">В БОЙ</button>
+      <div class="hint">
+        Управление — <b>WASD</b>, мышь — обзор, <b>ЛКМ</b> — стрельба,
+        <b>1/2/3</b> — автомат / дробовик / нож, <b>Shift</b> — спринт.
+      </div>
+      <div id="status" class="status"></div>
+    </div>
+  </div>
+
+  <div id="hud" class="hud hidden">
+    <div class="hud-top">
+      <div class="hud-cell"><span class="lbl">Свинья:</span><span id="hud-name"></span></div>
+      <div class="hud-cell"><span class="lbl">Союзник:</span><span id="hud-ally">—</span></div>
+      <div class="hud-cell"><span class="lbl">Волна:</span><span id="hud-wave">1</span></div>
+      <div class="hud-cell"><span class="lbl">Убито:</span><span id="hud-kills">0</span></div>
+    </div>
+    <div class="hud-bot">
+      <div class="weapons">
+        <div class="weapon" data-key="1">1<span>Автомат</span></div>
+        <div class="weapon" data-key="2">2<span>Дробовик</span></div>
+        <div class="weapon" data-key="3">3<span>Нож</span></div>
+      </div>
+      <div class="hp">HP: <span id="hud-hp">1</span></div>
+    </div>
+    <div id="crosshair"></div>
+  </div>
+
+  <div id="screamer" class="screamer hidden">
+    <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <radialGradient id="bg" cx="50%" cy="50%" r="60%">
+          <stop offset="0%" stop-color="#3a0000" />
+          <stop offset="100%" stop-color="#000" />
+        </radialGradient>
+      </defs>
+      <rect width="400" height="400" fill="url(#bg)" />
+      <ellipse cx="200" cy="220" rx="170" ry="160" fill="#e88aa6" />
+      <ellipse cx="200" cy="290" rx="80" ry="55" fill="#9a3850" />
+      <circle cx="200" cy="290" r="14" fill="#000" />
+      <circle cx="170" cy="290" r="9" fill="#000" />
+      <circle cx="230" cy="290" r="9" fill="#000" />
+      <ellipse cx="150" cy="180" rx="32" ry="28" fill="#fff" />
+      <ellipse cx="250" cy="180" rx="32" ry="28" fill="#fff" />
+      <circle cx="150" cy="186" r="18" fill="#c10000" />
+      <circle cx="250" cy="186" r="18" fill="#c10000" />
+      <circle cx="150" cy="186" r="6" fill="#000" />
+      <circle cx="250" cy="186" r="6" fill="#000" />
+      <path d="M120,250 Q200,360 280,250 L300,260 Q200,400 100,260 Z" fill="#5a0000" />
+      <path d="M150,260 L160,310 M180,260 L185,320 M220,260 L215,320 M250,260 L240,310" stroke="#fff" stroke-width="6" />
+      <path d="M40 60 L80 0 L120 60 Z" fill="#000" />
+      <path d="M280 60 L320 0 L360 60 Z" fill="#000" />
+      <path d="M0 0 L60 80 L0 80 Z" fill="#5a0000" opacity="0.7" />
+      <path d="M400 0 L340 80 L400 80 Z" fill="#5a0000" opacity="0.7" />
+    </svg>
+  </div>
+
+  <div id="gameover" class="gameover hidden">GAME OVER</div>
+
+  <canvas id="canvas"></canvas>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js"
+    }
+  }
+  </script>
+  <script src="./config.js"></script>
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
